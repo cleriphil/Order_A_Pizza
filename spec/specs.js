@@ -20,15 +20,20 @@ describe('Pizza', function() {
 
   });
 
-  // it("determines the price based on the toppings", function() {
-  //   var myPizza = new Pizza();
-  //   var Pepperoni = new Topping("pepperoni", 2);
-  //   var Bacon = new Topping("bacon", 3);
-  //   var extraCheese = new Topping("extra cheese", 1);
-  //   var Peppers = new Topping("peppers", 2);
-  //
-  //
-  // });
+  it("determines the price based on the toppings", function() {
+    var pizza1 = new Pizza();
+    var Pepperoni = new Topping("pepperoni", 2);
+    var Bacon = new Topping("bacon", 3);
+    var extraCheese = new Topping("extra cheese", 1);
+    var Peppers = new Topping("peppers", 2);
+    pizza1.addTopping(Pepperoni);
+    pizza1.addTopping(Bacon);
+    pizza1.addTopping(extraCheese);
+    pizza1.addTopping(Peppers);
+    expect(pizza1.pizzaCost()).to.equal(8);
+
+
+  });
 
 });
 

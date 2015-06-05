@@ -7,7 +7,6 @@ var Pizza = function() {
   this.toppings = []; //when the user selects toppings, it gets added
                       //to this array-- these two things will be
                       //connected in the front end/jQuery part
-  // this.cost = 0;
   this.quantity = 1;  //to order price
 };
 
@@ -30,14 +29,13 @@ var Topping = function(description, cost) {
 
 Pizza.prototype.pizzaCost = function() {
   var totalCost = 0;
-  var toppingsCost = [];
   this.toppings.forEach(function(topping){
-    totalCost + topping.cost;
+    totalCost += topping.cost;
   });
+  return totalCost;
 
   // if (this.pizzaSize === "small") {
   //
   // }
   //
-
 };
