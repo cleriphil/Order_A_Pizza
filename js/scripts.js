@@ -1,6 +1,15 @@
-// var Order = function() {
-//   this.pizzas = [];
-// };
+var TotalOrder = function() {
+  this.pizzas = [];
+};
+
+TotalOrder.prototype.addPizza = function(pizza) {
+  this.pizzas.push(pizza);
+  var totalCost = 0;
+  this.pizzas.forEach(function(pizza){
+    totalCost += pizza.pizzaCost;
+  });
+  return totalCost;
+};
 
 var Pizza = function() {
   this.pizzaSize = false;

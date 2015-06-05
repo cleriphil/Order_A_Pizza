@@ -66,6 +66,13 @@ describe('Topping', function() {
 
 });
 
+describe('TotalOrder', function() {
+  it("initializes the total order", function() {
+    var myTotalOrder = new TotalOrder();
+    expect(myTotalOrder.pizzas).to.eql([]);
+  });
+});
+
 
 
 
