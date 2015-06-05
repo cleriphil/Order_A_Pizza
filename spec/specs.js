@@ -12,6 +12,24 @@ describe('Pizza', function() {
     expect(myPizza.quantity).to.equal(5);
   });
 
+  it("adds a topping to a pizza", function() {
+    var myPizza = new Pizza();
+    var myTopping = new Topping("pepperoni", 2);
+    myPizza.addTopping(myTopping);
+    expect(myPizza.toppings).to.eql([myTopping]);
+
+  });
+
+  // it("determines the price based on the toppings", function() {
+  //   var myPizza = new Pizza();
+  //   var Pepperoni = new Topping("pepperoni", 2);
+  //   var Bacon = new Topping("bacon", 3);
+  //   var extraCheese = new Topping("extra cheese", 1);
+  //   var Peppers = new Topping("peppers", 2);
+  //
+  //
+  // });
+
 });
 
 describe('Topping', function() {
@@ -21,29 +39,24 @@ describe('Topping', function() {
     expect(myTopping.cost).to.equal(2);
   });
 
-  it("adds a topping to a pizza", function() {
-    var myPizza = new Pizza();
-    var myTopping = new Topping("pepperoni", 2);
-
-    myPizza.toppings.push(myTopping);
-    expect(myPizza.toppings).to.eql([myTopping]);
-
-  });
 
 });
 
-describe('PizzaSize', function() {
-  it("initializes a pizza size", function() {
-    var myPizzaSize = new PizzaSize("small", 4);
-    expect(myPizzaSize.description).to.equal("small");
-    expect(myPizzaSize.cost).to.equal(4);
-  });
 
-  it("adds a size option to a pizza", function() {
-    var myPizza = new Pizza();
-    var myPizzaSize = new PizzaSize("small", 4);
-    myPizza.pizzaSize = myPizzaSize;
-    expect(myPizza.pizzaSize).to.eql(myPizzaSize);
-  });
 
-});
+
+// describe('PizzaSize', function() {
+//   it("initializes a pizza size", function() {
+//     var myPizzaSize = new PizzaSize("small", 4);
+//     expect(myPizzaSize.description).to.equal("small");
+//     expect(myPizzaSize.cost).to.equal(4);
+//   });
+//
+//   it("adds a size option to a pizza", function() {
+//     var myPizza = new Pizza();
+//     var myPizzaSize = new PizzaSize("small", 4);
+//     myPizza.pizzaSize = myPizzaSize;
+//     expect(myPizza.pizzaSize).to.eql(myPizzaSize);
+//   });
+//
+// });

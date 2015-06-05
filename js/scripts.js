@@ -7,20 +7,37 @@ var Pizza = function() {
   this.toppings = []; //when the user selects toppings, it gets added
                       //to this array-- these two things will be
                       //connected in the front end/jQuery part
-  this.cost = 0;
-  this.quantity = 1;  //should this start at one?
+  // this.cost = 0;
+  this.quantity = 1;  //to order price
 };
 
 Pizza.prototype.setQuantity = function(amount) {
   this.quantity = amount;
 };
 
-var PizzaSize = function(description, cost) {//should this have cost here?
-  this.description = description;
-  this.cost = cost;
-};
+Pizza.prototype.addTopping = function(topping) {
+  this.toppings.push(topping);
+  };
+// var PizzaSize = function(description, cost) {//should this have cost here?
+//   this.description = description;
+//   this.cost = cost; //to pizza price
+// };
 
 var Topping = function(description, cost) {
   this.description = description;
-  this.cost = cost;
+  this.cost = cost; //to pizza price
+};
+
+Pizza.prototype.pizzaCost = function() {
+  var totalCost = 0;
+  var toppingsCost = [];
+  this.toppings.forEach(function(topping){
+    totalCost + topping.cost;
+  });
+
+  // if (this.pizzaSize === "small") {
+  //
+  // }
+  //
+
 };
