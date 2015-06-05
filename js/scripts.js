@@ -11,6 +11,10 @@ var Pizza = function() {
   this.quantity = 1;  //should this start at one?
 };
 
+Pizza.prototype.setQuantity = function(amount) {
+  this.quantity = amount;
+};
+
 var PizzaSize = function(description, cost) {//should this have cost here?
   this.description = description;
   this.cost = cost;

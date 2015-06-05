@@ -4,7 +4,12 @@ describe('Pizza', function() {
     expect(myPizza.pizzaSize).to.equal(false);
     expect(myPizza.toppings).to.eql([]);
     expect(myPizza.quantity).to.eql(1);
+  });
 
+  it("sets the quanity of pizza", function() {
+    var myPizza = new Pizza();
+    myPizza.setQuantity(5);
+    expect(myPizza.quantity).to.equal(5);
   });
 
 });
