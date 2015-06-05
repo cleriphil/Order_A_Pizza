@@ -1,7 +1,7 @@
 describe('Pizza', function() {
   it("initializes a pizza", function() {
     var myPizza = new Pizza();
-    expect(myPizza.pizzaSize).to.equal(false);
+    expect(myPizza.size).to.equal(false);
     expect(myPizza.toppings).to.eql([]);
     expect(myPizza.quantity).to.eql(1);
   });
@@ -10,6 +10,12 @@ describe('Pizza', function() {
     var myPizza = new Pizza();
     myPizza.setQuantity(5);
     expect(myPizza.quantity).to.equal(5);
+  });
+
+  it("sets the size of a pizza", function() {
+    var myPizza = new Pizza();
+    myPizza.setSize("small");
+    expect(myPizza.size).to.equal("small");
   });
 
   it("sets the cost of a pizza based on its quantity", function() {
@@ -82,23 +88,30 @@ describe('TotalOrder', function() {
     var myTotalOrder = new TotalOrder();
     expect(myTotalOrder.pizzas).to.eql([]);
   });
+
+  it("adds a pizza to the total order", function() {
+
+
+
+  });
+
 });
 
 
 
 
-// describe('PizzaSize', function() {
+// describe('size', function() {
 //   it("initializes a pizza size", function() {
-//     var myPizzaSize = new PizzaSize("small", 4);
-//     expect(myPizzaSize.description).to.equal("small");
-//     expect(myPizzaSize.cost).to.equal(4);
+//     var mysize = new size("small", 4);
+//     expect(mysize.description).to.equal("small");
+//     expect(mysize.cost).to.equal(4);
 //   });
 //
 //   it("adds a size option to a pizza", function() {
 //     var myPizza = new Pizza();
-//     var myPizzaSize = new PizzaSize("small", 4);
-//     myPizza.pizzaSize = myPizzaSize;
-//     expect(myPizza.pizzaSize).to.eql(myPizzaSize);
+//     var mysize = new size("small", 4);
+//     myPizza.size = mysize;
+//     expect(myPizza.size).to.eql(mysize);
 //   });
 //
 // });

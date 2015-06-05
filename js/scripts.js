@@ -1,15 +1,15 @@
-// var TotalOrder = function() {
-//   this.pizzas = [];
-//   this.cost = 0;
-// };
-//
-// TotalOrder.prototype.addPizza = function(pizza) {
-//   this.pizzas.push(pizza);
-//
-// };
+var TotalOrder = function() {
+  this.pizzas = [];
+  this.cost = 0;
+};
+
+TotalOrder.prototype.addPizza = function(pizza) {
+  this.pizzas.push(pizza);
+  this.cost += pizza.cost;
+};
 
 var Pizza = function() {
-  this.pizzaSize = false;
+  this.size = false;
   this.toppings = []; //when the user selects toppings, it gets added
                       //to this array-- these two things will be
                       //connected in the front end/jQuery part
@@ -33,6 +33,8 @@ var Topping = function(description, cost) {
 };
 
 Pizza.prototype.setSize = function(size) {
+  this.size = size;
+
   if (size === "small") {
     this.cost += 4;
   } else if (size === "medium") {
