@@ -44,16 +44,18 @@ Pizza.prototype.setSize = function(size) {
 
 function resetFields() {
   $("select#size").val("");
-  $("select#topping").val("");
+  $("select#multipleSelect").val("");
   $("select#quantity").val("");
 }
 
 
 $(function() {
-  var newPizza = new Pizza();
+
   var newOrder = new TotalOrder();
   $('form#order_pizza').submit(function(event) {
+    var newPizza = new Pizza();
     event.preventDefault();
+    $('#cart').show();
 
     var inputtedSize = $('select#size').val();
     newPizza.setSize(inputtedSize);
@@ -79,24 +81,17 @@ $(function() {
     newOrder.addPizza(newPizza);
     $('.number_of_pies').text(newOrder.pizzas.length);
 
-    newOrder.pizzas.forEach(function(pizza) {
+    resetFields();
 
-      pizza.toppings.forEach(function(topping) {
-        $('.toppings').append('<li>' + topping.description + '</li>');
-      });
-      $('.size').text(pizza.size);
-      $('.quantity').text(pizza.quantity);
-      $('.pizza_total').text('$' + pizza.cost);
-
-
-
+    newPizza.toppings.forEach(function(topping) {
+      $('.pizza_info').append('<h5>Toppings:</h5>' + topping.description);
     });
+    $('.pizza_info').append('<h5>Size:</h5>' + newPizza.size);
+    $('.pizza_info').append('<h5>Quantity:</h5>' + newPizza.quantity);
+    $('.pizza_info').append('<h5>Cost:</h5>' +'$' + newPizza.cost + '<hr>');
+    $('.order_total').text(newOrder.cost);
 
-    // pizza.toppings.forEach(function(topping) {
-    //   $('.toppings').append('<li>' + topping.description + ' $' + topping.cost + '</li>');
-    // });
 
 
   });
-
 });
