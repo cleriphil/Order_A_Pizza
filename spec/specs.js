@@ -3,6 +3,7 @@ describe('Pizza', function() {
     var myPizza = new Pizza();
     expect(myPizza.pizzaSize).to.equal(false);
     expect(myPizza.toppings).to.eql([]);
+    expect(myPizza.quantity).to.eql(1);
 
   });
 
@@ -36,10 +37,8 @@ describe('PizzaSize', function() {
   it("adds a size option to a pizza", function() {
     var myPizza = new Pizza();
     var myPizzaSize = new PizzaSize("small", 4);
-
     myPizza.pizzaSize = myPizzaSize;
     expect(myPizza.pizzaSize).to.eql(myPizzaSize);
-
   });
 
 });
