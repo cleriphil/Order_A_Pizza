@@ -32,10 +32,16 @@ Pizza.prototype.pizzaCost = function() {
   this.toppings.forEach(function(topping){
     totalCost += topping.cost;
   });
+
+  if (this.pizzaSize === "small") {
+    totalCost += 4;
+  } else if (this.pizzaSize === "medium") {
+    totalCost += 6;
+  } else if (this.pizzaSize === "large"){
+    totalCost += 8;
+  }
+
   return totalCost;
 
-  // if (this.pizzaSize === "small") {
-  //
-  // }
-  //
+
 };

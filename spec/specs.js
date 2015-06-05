@@ -31,9 +31,14 @@ describe('Pizza', function() {
     pizza1.addTopping(extraCheese);
     pizza1.addTopping(Peppers);
     expect(pizza1.pizzaCost()).to.equal(8);
-
-
   });
+
+  it("determines the price of a pizza based on its size", function() {
+    var pizza1 = new Pizza();
+    pizza1.pizzaSize = "small";
+    expect(pizza1.pizzaCost()).to.equal(4);
+    });
+
 
 });
 
