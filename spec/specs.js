@@ -25,3 +25,21 @@ describe('Topping', function() {
   });
 
 });
+
+describe('PizzaSize', function() {
+  it("initializes a pizza size", function() {
+    var myPizzaSize = new PizzaSize("small", 4);
+    expect(myPizzaSize.description).to.equal("small");
+    expect(myPizzaSize.cost).to.equal(4);
+  });
+
+  it("adds a size option to a pizza", function() {
+    var myPizza = new Pizza();
+    var myPizzaSize = new PizzaSize("small", 4);
+
+    myPizza.pizzaSize = myPizzaSize;
+    expect(myPizza.pizzaSize).to.eql(myPizzaSize);
+
+  });
+
+});
