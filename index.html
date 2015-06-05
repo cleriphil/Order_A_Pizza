@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Order Pizza</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="page-header">ORDER A PIZZA</h1>
+
+      <div id="order_box" class="col-md-6">
+        <form id="order_pizza">
+          <label for="size">Size:</label>
+          <select id="size" type="text" required>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <br><br>
+
+          <label for="topping">Topping: <br><small>(Select as many as you want.)</small></label>
+          <select id="multipleSelect" multiple="multiple" type="text" required>
+            <option value="3">Pepperoni</option>
+            <option value="3">Bacon</option>
+            <option value="3">Sausage</option>
+            <option value="2">Peppers</option>
+            <option value="2">Olives</option>
+            <option value="4">Pineapple</option>
+            <option value="4">Anchovies</option>
+            <option value="2">Brocolli</option>
+            <option value="1">Extra Cheese</option>
+            <option value="0">Just Cheese</option>
+          </select>
+          <br><br>
+          <label for="quantity">Quantity:</label>
+          <select id="quantity" type="number" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <br><br>
+          <button class="btn btn-default">Add</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div id="cart">
+          <h4>Your Current Order:</h4>
+          <h3>You have <span class="number_of_pies"></span> type(s) of pie(s) in your cart.</h3>
+          <span class="pizza_info"></span>
+          <h3>Your Total: $<span class="order_total"></span></h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
