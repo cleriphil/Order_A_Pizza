@@ -1,15 +1,12 @@
-var TotalOrder = function() {
-  this.pizzas = [];
-};
-
-TotalOrder.prototype.addPizza = function(pizza) {
-  this.pizzas.push(pizza);
-  var totalCost = 0;
-  this.pizzas.forEach(function(pizza){
-    totalCost += pizza.pizzaCost;
-  });
-  return totalCost;
-};
+// var TotalOrder = function() {
+//   this.pizzas = [];
+//   this.cost = 0;
+// };
+//
+// TotalOrder.prototype.addPizza = function(pizza) {
+//   this.pizzas.push(pizza);
+//
+// };
 
 var Pizza = function() {
   this.pizzaSize = false;
@@ -17,40 +14,30 @@ var Pizza = function() {
                       //to this array-- these two things will be
                       //connected in the front end/jQuery part
   this.quantity = 1;  //to order price
+  this.cost = 0;
 };
 
 Pizza.prototype.setQuantity = function(amount) {
   this.quantity = amount;
+  this.cost *= amount;
 };
 
 Pizza.prototype.addTopping = function(topping) {
   this.toppings.push(topping);
-  };
-// var PizzaSize = function(description, cost) {//should this have cost here?
-//   this.description = description;
-//   this.cost = cost; //to pizza price
-// };
+  this.cost += topping.cost;
+};
 
 var Topping = function(description, cost) {
   this.description = description;
-  this.cost = cost; //to pizza price
+  this.cost = cost;
 };
 
-Pizza.prototype.pizzaCost = function() {
-  var totalCost = 0;
-  this.toppings.forEach(function(topping){
-    totalCost += topping.cost;
-  });
-
-  if (this.pizzaSize === "small") {
-    totalCost += 4;
-  } else if (this.pizzaSize === "medium") {
-    totalCost += 6;
-  } else if (this.pizzaSize === "large"){
-    totalCost += 8;
-  }
-
-  return totalCost;
-
-
+Pizza.prototype.setSize = function(size) {
+  if (size === "small") {
+    this.cost += 4;
+  } else if (size === "medium") {
+    this.cost += 6;
+  } else if (size === "large"){
+    this.cost += 8;
+  };
 };

@@ -12,6 +12,16 @@ describe('Pizza', function() {
     expect(myPizza.quantity).to.equal(5);
   });
 
+  it("sets the cost of a pizza based on its quantity", function() {
+    var pizza1 = new Pizza();
+    pizza1.setSize("large");
+    var Pepperoni = new Topping("pepperoni", 3);
+    pizza1.addTopping(Pepperoni);
+    pizza1.setQuantity(4);
+    expect(pizza1.cost).to.equal(44);
+  });
+
+
   it("adds a topping to a pizza", function() {
     var myPizza = new Pizza();
     var myTopping = new Topping("pepperoni", 2);
@@ -30,28 +40,29 @@ describe('Pizza', function() {
     pizza1.addTopping(Bacon);
     pizza1.addTopping(extraCheese);
     pizza1.addTopping(Peppers);
-    expect(pizza1.pizzaCost()).to.equal(8);
+    expect(pizza1.cost).to.equal(8);
   });
 
   it("determines the price of a pizza based on its size", function() {
     var pizza1 = new Pizza();
-    pizza1.pizzaSize = "small";
-    expect(pizza1.pizzaCost()).to.equal(4);
+    pizza1.setSize("small");
+    expect(pizza1.cost).to.equal(4);
     });
 
-    it("determines the total price of a pizza", function() {
-      var pizza1 = new Pizza();
-      pizza1.pizzaSize = "large";
-      var Pepperoni = new Topping("pepperoni", 2);
-      var Bacon = new Topping("bacon", 3);
-      var extraCheese = new Topping("extra cheese", 1);
-      var Peppers = new Topping("peppers", 2);
-      pizza1.addTopping(Pepperoni);
-      pizza1.addTopping(Bacon);
-      pizza1.addTopping(extraCheese);
-      pizza1.addTopping(Peppers);
-      expect(pizza1.pizzaCost()).to.equal(16);
-    });
+  it("determines the total price of a pizza", function() {
+    var pizza1 = new Pizza();
+    pizza1.setSize("large");
+    var Pepperoni = new Topping("pepperoni", 2);
+    var Bacon = new Topping("bacon", 3);
+    var extraCheese = new Topping("extra cheese", 1);
+    var Peppers = new Topping("peppers", 2);
+    pizza1.addTopping(Pepperoni);
+    pizza1.addTopping(Bacon);
+    pizza1.addTopping(extraCheese);
+    pizza1.addTopping(Peppers);
+    expect(pizza1.cost).to.equal(16);
+  });
+
 
 
 });
