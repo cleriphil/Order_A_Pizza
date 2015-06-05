@@ -90,8 +90,16 @@ describe('TotalOrder', function() {
   });
 
   it("adds a pizza to the total order", function() {
-
-
+    var myOrder = new TotalOrder();
+    var pizza1 = new Pizza();
+    pizza1.setSize("large");
+    var Pepperoni = new Topping("pepperoni", 2);
+    var Bacon = new Topping("bacon", 3);
+    pizza1.addTopping(Pepperoni);
+    pizza1.addTopping(Bacon);
+    pizza1.setQuantity = 2;
+    myOrder.addPizza(pizza1);
+    expect(myOrder.pizzas).to.eql([pizza1]);
 
   });
 
