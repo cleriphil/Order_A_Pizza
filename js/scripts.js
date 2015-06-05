@@ -1,5 +1,5 @@
-var Pizza = function(size) {
-  this.size = size;
+var Pizza = function(pizzaSize) {
+  this.pizzaSize = pizzaSize;
   this.toppings = []; //when the user selects toppings, it gets added
                       //to this array
 };
