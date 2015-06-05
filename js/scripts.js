@@ -67,18 +67,16 @@ $(function() {
       descriptions.push($(this).text());
     });
 
-
     var numberOfToppings = descriptions.length;
     for(x=0;x<numberOfToppings;x++){
       newPizza.addTopping(new Topping(descriptions[x], parseInt(costs[x])));
     };
-    console.log(newPizza.toppings)
 
     var inputtedQuantity = parseInt($('select#quantity').val());
     newPizza.setQuantity(inputtedQuantity);
 
-///after this, the pizza is added to the order
     newOrder.addPizza(newPizza);
+
     $('.number_of_pies').text(newOrder.pizzas.length);
 
     resetFields();
@@ -86,9 +84,11 @@ $(function() {
     newPizza.toppings.forEach(function(topping) {
       $('.pizza_info').append('<h5>Toppings:</h5>' + topping.description);
     });
+
     $('.pizza_info').append('<h5>Size:</h5>' + newPizza.size);
     $('.pizza_info').append('<h5>Quantity:</h5>' + newPizza.quantity);
     $('.pizza_info').append('<h5>Cost:</h5>' +'$' + newPizza.cost + '<hr>');
+
     $('.order_total').text(newOrder.cost);
 
 
