@@ -42,15 +42,21 @@ Pizza.prototype.setSize = function(size) {
   };
 };
 
+function resetFields() {
+  $("select#size").val("");
+  $("select#topping").val("");
+  $("select#quantity").val("");
+}
+
+
 $(function() {
   var newPizza = new Pizza();
+  var newOrder = new TotalOrder();
   $('form#order_pizza').submit(function(event) {
     event.preventDefault();
+
     var inputtedSize = $('select#size').val();
     newPizza.setSize(inputtedSize);
-
-
-
 
     var costs = [];
     var descriptions = [];
@@ -59,17 +65,37 @@ $(function() {
       descriptions.push($(this).text());
     });
 
+
     var numberOfToppings = descriptions.length;
     for(x=0;x<numberOfToppings;x++){
-      newPizza.addTopping(new Topping(descriptions[x], costs[x]));
+      newPizza.addTopping(new Topping(descriptions[x], parseInt(costs[x])));
     };
-
     console.log(newPizza.toppings)
 
+    var inputtedQuantity = parseInt($('select#quantity').val());
+    newPizza.setQuantity(inputtedQuantity);
 
-    $('.test').text(newPizza.toppings[0].description); //for testing
-    $('.test2').text(newPizza.toppings[1].description); //for testing
-    // $('.test').append(inputtedSize);
+///after this, the pizza is added to the order
+    newOrder.addPizza(newPizza);
+    $('.number_of_pies').text(newOrder.pizzas.length);
+
+    newOrder.pizzas.forEach(function(pizza) {
+
+      pizza.toppings.forEach(function(topping) {
+        $('.toppings').append('<li>' + topping.description + '</li>');
+      });
+      $('.size').text(pizza.size);
+      $('.quantity').text(pizza.quantity);
+      $('.pizza_total').text('$' + pizza.cost);
+
+
+
+    });
+
+    // pizza.toppings.forEach(function(topping) {
+    //   $('.toppings').append('<li>' + topping.description + ' $' + topping.cost + '</li>');
+    // });
+
 
   });
 
