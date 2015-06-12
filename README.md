@@ -5,8 +5,7 @@ Order A Pizza allows a user to select the size, toppings and the quantity of the
 
 ### Setup Instructions
 
---Clone project in desktop
---Open index.html to launch browser
---Author: Cleri Philiastides
+- Clone project in desktop
+- Open index.html to launch browser
 
 MIT License
