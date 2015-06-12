@@ -3,15 +3,16 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+English:400italic' rel='stylesheet' type='text/css'>
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
     <title>Order Pizza</title>
   </head>
   <body>
     <div class="container">
-      <h1 class="page-header">ORDER A PIZZA</h1>
+      <h1 class="page-header pizza_title"><em>ORDER A PIZZA</em></h1>
 
-      <div id="order_box" class="col-md-6">
+      <div id="order_box" class="col-md-5">
         <form id="order_pizza">
           <label for="size">Size:</label>
           <select id="size" type="text" required>
@@ -21,7 +22,7 @@
           </select>
           <br><br>
 
-          <label for="topping">Topping: <br><small>(Select as many as you want.)</small></label>
+          <label for="topping">Topping: <br><small>(Select multiple with cmd + click.)</small></label>
           <select id="multipleSelect" multiple="multiple" type="text" required>
             <option value="3">Pepperoni</option>
             <option value="3">Bacon</option>
@@ -51,12 +52,15 @@
           <br><br>
           <button class="btn btn-default">Add</button>
         </form>
+        <img class="pizza_chef" src="img/pizza_chef.jpg">
+
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-7">
         <div id="cart">
           <h4>Your Current Order:</h4>
-          <h3>You have <span class="number_of_pies"></span> type(s) of pie(s) in your cart.</h3>
+          <h3>You have <span class="number_of_pies"></span> kind(s) of pie(s) in your order.</h3>
+          <hr>
           <span class="pizza_info"></span>
           <h3>Your Total: $<span class="order_total"></span></h3>
         </div>

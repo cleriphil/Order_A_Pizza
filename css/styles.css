@@ -1,3 +1,21 @@
 #cart {
   display: none;
-};
+}
+
+.pizza_img {
+  width: 25%;
+  float: right;
+}
+
+.pizza_chef {
+  width: 80%;
+}
+
+.pizza_title {
+  font-family: 'IM Fell English', serif;
+  font-size: 50px;
+}
+
+h5 {
+
+}

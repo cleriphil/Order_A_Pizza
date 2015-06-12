@@ -81,6 +81,8 @@ $(function() {
 
     resetFields();
 
+    $('.pizza_info').append("<img class='pizza_img' src='img/pizza.jpg'>");
+
     newPizza.toppings.forEach(function(topping) {
       $('.pizza_info').append('<h5>Toppings:</h5>' + topping.description);
     });
